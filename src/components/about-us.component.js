@@ -32,7 +32,7 @@ export default class AboutUs extends Component {
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>18.7ppg, 4.8reb, 9.3ast</ListGroupItem>
                     <ListGroupItem>175lb</ListGroupItem>
-                    <ListGroupItem>I can't dunk.</ListGroupItem>
+                    <ListGroupItem>I can't dunk and I am really self conscious about it.</ListGroupItem>
                 </ListGroup>
             </Card>
             
@@ -83,7 +83,7 @@ export default class AboutUs extends Component {
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>17.8ppg, 6.3reb, 4.5ast</ListGroupItem>
                     <ListGroupItem>220lb</ListGroupItem>
-                    <ListGroupItem>I don't even like basketball.</ListGroupItem>
+                    <ListGroupItem>I don't even like basketball. I'm just playing for money.</ListGroupItem>
                 </ListGroup>
             </Card>
             

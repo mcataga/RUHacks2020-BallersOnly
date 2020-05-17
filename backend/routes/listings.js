@@ -8,6 +8,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
+  const title = req.body.title;
   const name = req.body.name;
   const email = req.body.email;
   const number = req.body.number;
@@ -16,6 +17,7 @@ router.route('/add').post((req, res) => {
   const location = req.body.location;
 
   const newListing = new Listing({
+    title,
     name,
     email,
     number,
@@ -44,6 +46,7 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Listing.findById(req.params.id)
     .then(listing => {
+        listing.title = req.body.title;
         listing.name = req.body.name;
         listing.email = req.body.email;
         listing.number = req.body.number;

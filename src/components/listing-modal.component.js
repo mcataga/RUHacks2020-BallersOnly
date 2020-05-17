@@ -10,6 +10,7 @@ export default class ListingModal extends Component {
 		this.handleShow = this.handleShow.bind(this);
 		this.handleClose = this.handleClose.bind(this);
 
+		this.onChangeTitle = this.onChangeTitle.bind(this);
 		this.onChangeName = this.onChangeName.bind(this);
     	this.onChangeEmail = this.onChangeEmail.bind(this);
     	this.onChangeNumber = this.onChangeNumber.bind(this);
@@ -20,6 +21,7 @@ export default class ListingModal extends Component {
 
 		this.state = {
 			show: false,
+			title: '',
 			name: '',
 			email: '',
 			number: '',
@@ -35,6 +37,13 @@ export default class ListingModal extends Component {
 
 	handleShow() {
 		this.setState({ show: true });
+	}
+
+	onChangeTitle(e) {
+		this.setState({
+		  title: e.target.value
+		})
+		console.log(e.target.value);
 	}
 
 	onChangeName(e) {
@@ -83,6 +92,7 @@ export default class ListingModal extends Component {
 		e.preventDefault();
 	
 		const listing = {
+			title: this.state.title,
 			name: this.state.name,
 			email: this.state.email,
 			number: this.state.number,
@@ -114,6 +124,11 @@ export default class ListingModal extends Component {
 					<Modal.Body>
 
 						<Form>
+							<Form.Group controlId="formBasicTitle">
+								<Form.Label>Title</Form.Label>
+								<Form.Control type="text" placeholder="Enter your title" value={this.state.title} onChange={this.onChangeTitle}/>
+							</Form.Group>
+
 							<Form.Group controlId="formBasicName">
 								<Form.Label>Name</Form.Label>
 								<Form.Control type="text" placeholder="Enter your name" value={this.state.name} onChange={this.onChangeName}/>

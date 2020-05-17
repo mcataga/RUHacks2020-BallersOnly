@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+.aboutImage {
+  height: 286px;
+  max-height: 100%;
+  width: 286px;
+  max-width: 100%;
+  object-fit: cover;
+}

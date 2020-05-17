@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import GoogleMaps from './google-maps.component';
 import axios from 'axios';
 
-
 const Listing = props => (
   <Card>
   <Card.Header as="h5">{props.listing.name}</Card.Header>
@@ -20,7 +19,6 @@ const Listing = props => (
     <Button variant="primary">Go somewhere</Button>
   </Card.Body>
 </Card>
-
 )
 
 export default class ExercisesList extends Component {

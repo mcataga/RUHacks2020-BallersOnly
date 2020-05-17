@@ -44,6 +44,10 @@ export default class ExercisesList extends Component {
       .catch((error) => {
         console.log(error);
       })
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+      });
   }
 
   deleteListing(id) {

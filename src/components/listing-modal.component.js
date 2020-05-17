@@ -132,14 +132,16 @@ export default class ListingModal extends Component {
 							</Form.Group>
 
 							<Form.Group controlId="formBasicPlayers">
+							
 								<Form.Label>Required Players</Form.Label>
-								<Form.Control as="select" value={this.state.players} onChange={this.onChangePlayers}>
+								<Form.Control as="select" value={this.state.selectValue} onChange={this.onChangePlayers}>
         							<option>1</option>
         							<option>2</option>
 									<option>3</option>
 									<option>4</option>
 									<option>5</option>
       							</Form.Control>
+								 
     						</Form.Group>
 
 							<Form.Group controlId="formBasicLocation">

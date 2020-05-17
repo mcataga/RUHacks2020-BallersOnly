@@ -89,11 +89,6 @@ h2 {
   justify-content: center;
   transform: translate(0%, 1700%); 
   text-align: center;
-  
- 
-  color: black;
-  
-
 }
 
 h2 span { 
@@ -144,4 +139,8 @@ a{
 .btn-accept:hover {
   background-color: #178508;
   color: white;
+}
+
+a:hover {
+  color: #ffffff;
 }

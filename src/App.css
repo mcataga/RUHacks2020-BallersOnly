@@ -40,7 +40,6 @@
   object-fit: cover;
 }
 
-
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -102,4 +101,43 @@ h2 span {
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
    padding: 10px; 
+.card {
+  margin-top: 20px;
+}
+
+.card-footer{
+  margin-top: 5px;
+  background-color: rgba(0,0,0,.15);
+}
+
+a{
+  color: #000000;
+}
+
+.admin-background {
+  margin-top: 10px;
+  font-weight: bolder;
+}
+
+.btn-accept{
+  color: #fff;
+  background-color: #199109;
+  border-color: #199109;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+}
+
+.btn-accept:hover {
+  background-color: #178508;
+  color: white;
 }

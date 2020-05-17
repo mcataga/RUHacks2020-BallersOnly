@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { geocodeByAddress, getLatLng  } from 'react-google-places-autocomplete';
+// If you want to use the provided css
+import 'react-google-places-autocomplete/dist/index.min.css';
 
 export default class ListingModal extends Component {
 	constructor(props) {
@@ -10,6 +14,7 @@ export default class ListingModal extends Component {
 		this.handleShow = this.handleShow.bind(this);
 		this.handleClose = this.handleClose.bind(this);
 
+		this.onChangeTitle = this.onChangeTitle.bind(this);
 		this.onChangeName = this.onChangeName.bind(this);
     	this.onChangeEmail = this.onChangeEmail.bind(this);
     	this.onChangeNumber = this.onChangeNumber.bind(this);
@@ -20,12 +25,15 @@ export default class ListingModal extends Component {
 
 		this.state = {
 			show: false,
+			title: '',
 			name: '',
 			email: '',
 			number: '',
 			additional: '',
 			players: 1,
-			location: ''
+			location: '',
+			latitude: '',
+			longitude: '',
 		};
 	}
 
@@ -35,6 +43,13 @@ export default class ListingModal extends Component {
 
 	handleShow() {
 		this.setState({ show: true });
+	}
+
+	onChangeTitle(e) {
+		this.setState({
+		  title: e.target.value
+		})
+		console.log(e.target.value);
 	}
 
 	onChangeName(e) {
@@ -74,21 +89,32 @@ export default class ListingModal extends Component {
 
 	onChangeLocation(e) {
 		this.setState({
-		  location: e.target.value
+		  location: e.description
 		})
-		console.log(e.target.value);
+		console.log(e.description);
+		geocodeByAddress(e.description)
+		.then(results => getLatLng(results[0]))
+		.then(({ lat, lng }) => {
+			this.setState({
+				latitude: lat,
+				longitude: lng})
+		  console.log('Successfully got latitude and longitude', { lat, lng }); }
+		);
 	}
 
 	onSubmit(e) {
 		e.preventDefault();
 	
 		const listing = {
+			title: this.state.title,
 			name: this.state.name,
 			email: this.state.email,
 			number: this.state.number,
 			additional: this.state.additional,
 			players: this.state.players,
-			location: this.state.location
+			location: this.state.location,
+			latitude: this.state.latitude,
+			longitude: this.state.longitude
 		}
 	
 		console.log(listing);
@@ -114,6 +140,11 @@ export default class ListingModal extends Component {
 					<Modal.Body>
 
 						<Form>
+							<Form.Group controlId="formBasicTitle">
+								<Form.Label>Title</Form.Label>
+								<Form.Control type="text" placeholder="Enter your title" value={this.state.title} onChange={this.onChangeTitle}/>
+							</Form.Group>
+
 							<Form.Group controlId="formBasicName">
 								<Form.Label>Name</Form.Label>
 								<Form.Control type="text" placeholder="Enter your name" value={this.state.name} onChange={this.onChangeName}/>
@@ -152,11 +183,13 @@ export default class ListingModal extends Component {
 
 							<Form.Group controlId="formBasicLocation">
 								<Form.Label>Location</Form.Label>
-								<Form.Control type="text" placeholder="Your location" value={this.state.location} onChange={this.onChangeLocation}/>
+								<GooglePlacesAutocomplete
+								onSelect={object => {this.onChangeLocation(object)}} apiKey="AIzaSyD2YwvshqSztoaJkzrh2MwHglDDsJY15-4"
+								/>
 							</Form.Group>
 
 
-							<Button variant="primary" type="submit">
+							<Button variant="primary" type="submit" style={{float: 'right'}}>
 								Submit
  							 </Button>
 						</Form>

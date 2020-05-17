@@ -82,7 +82,7 @@ export default class ExercisesList extends Component {
   }
   sortListByLastUpdated(e) {
     this.setState({
-      listings: this.state.listings.sort((a, b) => (a.updatedAt > b.updatedAt) ? 1 : -1)
+      listings: this.state.listings.sort((a, b) => (a.updatedAt < b.updatedAt) ? 1 : -1)
     })
   }
   sortListByPlayers(e) {

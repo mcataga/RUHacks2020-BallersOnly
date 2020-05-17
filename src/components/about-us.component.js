@@ -33,6 +33,7 @@ export default class AboutUs extends Component {
                     <ListGroupItem>18.7ppg, 4.8reb, 9.3ast</ListGroupItem>
                     <ListGroupItem>175lb</ListGroupItem>
                     <ListGroupItem>I can't dunk and I am really self conscious about it.</ListGroupItem>
+                    <ListGroupItem action href='https://www.linkedin.com/in/adulinen/'>https://www.linkedin.com/in/adulinen/</ListGroupItem>
                 </ListGroup>
             </Card>
             
@@ -50,6 +51,7 @@ export default class AboutUs extends Component {
                     <ListGroupItem>22.6ppg, 5.3reb, 3.6ast</ListGroupItem>
                     <ListGroupItem>195lb</ListGroupItem>
                     <ListGroupItem>My fg% is higher than my GPA.</ListGroupItem>
+                    <ListGroupItem action href='https://www.linkedin.com/in/mcataga/'>https://www.linkedin.com/in/mcataga/</ListGroupItem>
                 </ListGroup>
             </Card>
             
@@ -67,6 +69,7 @@ export default class AboutUs extends Component {
                     <ListGroupItem>24.8ppg, 8.7reb, 3.2ast</ListGroupItem>
                     <ListGroupItem>240lb</ListGroupItem>
                     <ListGroupItem>I'm a big man who only shoots three's.</ListGroupItem>
+                    <ListGroupItem action href='https://www.linkedin.com/in/manveer-gill-5616b81a0/'>https://www.linkedin.com/in/manveer-gill-5616b81a0/</ListGroupItem>
                 </ListGroup>
             </Card>
             
@@ -84,6 +87,7 @@ export default class AboutUs extends Component {
                     <ListGroupItem>17.8ppg, 6.3reb, 4.5ast</ListGroupItem>
                     <ListGroupItem>220lb</ListGroupItem>
                     <ListGroupItem>I don't even like basketball. I'm just playing for money.</ListGroupItem>
+                    <ListGroupItem action href='https://www.linkedin.com/in/jmusab/'>https://www.linkedin.com/in/jmusab/</ListGroupItem>
                 </ListGroup>
             </Card>
             

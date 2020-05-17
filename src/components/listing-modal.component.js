@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { geocodeByAddress, getLatLng  } from 'react-google-places-autocomplete';
+// If you want to use the provided css
+import 'react-google-places-autocomplete/dist/index.min.css';
 
 export default class ListingModal extends Component {
 	constructor(props) {
@@ -17,8 +21,6 @@ export default class ListingModal extends Component {
 		this.onChangeAdditional = this.onChangeAdditional.bind(this);
 		this.onChangePlayers = this.onChangePlayers.bind(this);
 		this.onChangeLocation = this.onChangeLocation.bind(this);
-		this.onChangeLatitude = this.onChangeLatitude.bind(this);
-		this.onChangeLongitude = this.onChangeLongitude.bind(this);
     	this.onSubmit = this.onSubmit.bind(this);
 
 		this.state = {
@@ -31,7 +33,7 @@ export default class ListingModal extends Component {
 			players: 1,
 			location: '',
 			latitude: '',
-			longitude: ''
+			longitude: '',
 		};
 	}
 
@@ -87,23 +89,17 @@ export default class ListingModal extends Component {
 
 	onChangeLocation(e) {
 		this.setState({
-		  location: e.target.value
+		  location: e.description
 		})
-		console.log(e.target.value);
-	}
-
-	onChangeLatitude(e) {
-		this.setState({
-		  latitude: e.target.value
-		})
-		console.log(e.target.value);
-	}
-
-	onChangeLongitude(e) {
-		this.setState({
-		  longitude: e.target.value
-		})
-		console.log(e.target.value);
+		console.log(e.description);
+		geocodeByAddress(e.description)
+		.then(results => getLatLng(results[0]))
+		.then(({ lat, lng }) => {
+			this.setState({
+				latitude: lat,
+				longitude: lng})
+		  console.log('Successfully got latitude and longitude', { lat, lng }); }
+		);
 	}
 
 	onSubmit(e) {
@@ -187,8 +183,11 @@ export default class ListingModal extends Component {
 
 							<Form.Group controlId="formBasicLocation">
 								<Form.Label>Location</Form.Label>
-								<Form.Control type="text" placeholder="Your location" value={this.state.location} onChange={this.onChangeLocation}/>
+								<GooglePlacesAutocomplete
+								onSelect={object => {this.onChangeLocation(object)}} apiKey="AIzaSyD2YwvshqSztoaJkzrh2MwHglDDsJY15-4"
+								/>
 							</Form.Group>
+
 
 							<Button variant="primary" type="submit">
 								Submit

@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "google-maps-react": "^2.0.6",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.1",
     "react-datepicker": "^2.5.0",

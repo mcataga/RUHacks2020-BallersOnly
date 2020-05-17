@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
+import{ Card, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import GoogleMaps from './google-maps.component';
 import axios from 'axios';
 
+
 const Exercise = props => (
-  <tr>
-    <td>{props.exercise.username}</td>
-    <td>{props.exercise.description}</td>
-    <td>{props.exercise.duration}</td>
-    <td>{props.exercise.date.substring(0,10)}</td>
-    <td>
-      <Link to={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
-    </td>
-  </tr>
+  <Card>
+  <Card.Header as="h5">{props.exercise.username}</Card.Header>
+  <Card.Body>
+    <Card.Title>{props.exercise.description}</Card.Title>
+   <GoogleMaps />
+    <Card.Text>
+    {props.exercise.duration}
+    {props.exercise.date.substring(0,10)}
+      </Card.Text>
+    
+    <Link to={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
+    <Button variant="primary">Go somewhere</Button>
+  </Card.Body>
+</Card>
+
 )
 
 export default class ExercisesList extends Component {
@@ -51,21 +60,7 @@ export default class ExercisesList extends Component {
   render() {
     return (
       <div>
-        <h3>Logged Exercises</h3>
-        <table className="table">
-          <thead className="thead-light">
-            <tr>
-              <th>Username</th>
-              <th>Description</th>
-              <th>Duration</th>
-              <th>Date</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            { this.exerciseList() }
-          </tbody>
-        </table>
+        { this.exerciseList() }
       </div>
     )
   }

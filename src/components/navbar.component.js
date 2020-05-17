@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { Navbar,NavItem,Nav,Button } from "react-bootstrap"
-=======
+import { Navbar,NavItem,Nav,Button } from "react-bootstrap";
 import ListingModal from './listing-modal.component';
->>>>>>> c5e303c2886572933c30ee2957dc259841ed399b
 
 export default class NavbarMain extends Component {
 
@@ -31,13 +28,8 @@ export default class NavbarMain extends Component {
         </div>
 
         </div>
-<<<<<<< HEAD
-    </nav>  
-      
-=======
         <ListingModal/>
       </nav>
->>>>>>> c5e303c2886572933c30ee2957dc259841ed399b
     );
   }
 }

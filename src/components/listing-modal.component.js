@@ -189,7 +189,7 @@ export default class ListingModal extends Component {
 							</Form.Group>
 
 
-							<Button variant="primary" type="submit">
+							<Button variant="primary" type="submit" style={{float: 'right'}}>
 								Submit
  							 </Button>
 						</Form>

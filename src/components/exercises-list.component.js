@@ -17,8 +17,7 @@ const Listing = props => (
       <Card.Footer><Card.Title>Description: {props.listing.additional}</Card.Title></Card.Footer>
       
       <Card.Footer class="admin-background">
-      <Link as="h6" to={"/edit/" + props.listing._id}>edit</Link> | <a href="#" onClick={() => { props.deleteListing(props.listing._id) }}>delete </a>
-      <Button variant="accept">Go somewhere</Button>
+      <Button variant="accept" style={{float: 'right'}}>Accept</Button>
       </Card.Footer>
     </Card.Body>
   </Card>

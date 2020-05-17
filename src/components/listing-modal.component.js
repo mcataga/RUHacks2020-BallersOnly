@@ -3,15 +3,29 @@ import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
 
-class ListingModal extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+export default class ListingModal extends Component {
+	constructor(props) {
+		super(props);
 
 		this.handleShow = this.handleShow.bind(this);
 		this.handleClose = this.handleClose.bind(this);
 
+		this.onChangeName = this.onChangeName.bind(this);
+    	this.onChangeEmail = this.onChangeEmail.bind(this);
+    	this.onChangeNumber = this.onChangeNumber.bind(this);
+		this.onChangeAdditional = this.onChangeAdditional.bind(this);
+		this.onChangePlayers = this.onChangePlayers.bind(this);
+		this.onChangeLocation = this.onChangeLocation.bind(this);
+    	this.onSubmit = this.onSubmit.bind(this);
+
 		this.state = {
 			show: false,
+			name: '',
+			email: '',
+			number: '',
+			additional: '',
+			players: 1,
+			location: ''
 		};
 	}
 
@@ -23,13 +37,69 @@ class ListingModal extends React.Component {
 		this.setState({ show: true });
 	}
 
+	onChangeName(e) {
+		this.setState({
+		  name: e.target.value
+		})
+	}
+	
+	onChangeEmail(e) {
+		this.setState({
+		  email: e.target.value
+		})
+	}
+
+	onChangeNumber(e) {
+		this.setState({
+		  number: e.target.value
+		})
+	}
+
+	onChangeAdditional(e) {
+		this.setState({
+		  additional: e.target.value
+		})
+	}
+
+	onChangePlayers(e) {
+		this.setState({
+		  players: e.target.value
+		})
+	}
+
+	onChangeLocation(e) {
+		this.setState({
+		  location: e.target.value
+		})
+	}
+
+	onSubmit(e) {
+		e.preventDefault();
+	
+		const listing = {
+			name: this.state.name,
+			email: this.state.email,
+			number: this.state.number,
+			additional: this.state.additional,
+			players: this.state.players,
+			location: this.state.location
+		}
+	
+		console.log(listing);
+	
+		axios.post('http://localhost:5000/listings/add', listing)
+		  .then(res => console.log("test"));
+	
+		window.location = '/';
+	}
+
 	render() {
 		return (
 			<>
 				<Button variant="primary" onClick={this.handleShow}>
 					Create Listing
 			</Button>
-				<Modal show={this.state.show} onHide={this.handleClose} size="lg"
+				<Modal onSubmit={this.onSubmit} show={this.state.show} onHide={this.handleClose} size="lg"
 					aria-labelledby="contained-modal-title-vcenter"
 					centered>
 					<Modal.Header closeButton>
@@ -40,12 +110,12 @@ class ListingModal extends React.Component {
 						<Form>
 							<Form.Group controlId="formBasicName">
 								<Form.Label>Name</Form.Label>
-								<Form.Control type="email" placeholder="Enter your name" />
+								<Form.Control type="text" placeholder="Enter your name" value={this.state.name} onChange={this.onChangeName}/>
 							</Form.Group>
 
 							<Form.Group controlId="formBasicEmail">
 								<Form.Label>Email address</Form.Label>
-								<Form.Control type="email" placeholder="Enter email" />
+								<Form.Control type="email" placeholder="Enter email" value={this.state.email} onChange={this.onChangeEmail}/>
 								<Form.Text className="text-muted">
 									We'll never share your email with anyone else.
     							</Form.Text>
@@ -53,17 +123,17 @@ class ListingModal extends React.Component {
 
 							<Form.Group controlId="formBasicNumber">
 								<Form.Label>Number</Form.Label>
-								<Form.Control type="tel" placeholder="Enter number" />
+								<Form.Control type="tel" placeholder="Enter number" value={this.state.number} onChange={this.onChangeNumber}/>
 							</Form.Group>
 
 							<Form.Group controlId="formBasicDescription">
 								<Form.Label>Additional Information</Form.Label>
-								<Form.Control type="text" placeholder="Any additional information" />
+								<Form.Control type="text" placeholder="Any additional information" value={this.state.additional} onChange={this.onChangeAdditional}/>
 							</Form.Group>
 
 							<Form.Group controlId="formBasicPlayers">
 								<Form.Label>Required Players</Form.Label>
-								<Form.Control as="select" value="Choose...">
+								<Form.Control as="select" value={this.state.players} onChange={this.onChangePlayers}>
         							<option>1</option>
         							<option>2</option>
 									<option>3</option>
@@ -74,7 +144,7 @@ class ListingModal extends React.Component {
 
 							<Form.Group controlId="formBasicLocation">
 								<Form.Label>Location</Form.Label>
-								<Form.Control type="text" placeholder="Your location" />
+								<Form.Control type="text" placeholder="Your location" value={this.state.location} onChange={this.onChangeLocation}/>
 							</Form.Group>
 
 
@@ -84,18 +154,10 @@ class ListingModal extends React.Component {
 						</Form>
 
 					</Modal.Body>
-					<Modal.Footer>
-						<Button variant="secondary" onClick={this.handleClose}>
-							Close
-					</Button>
-						<Button variant="primary" onClick={this.handleClose}>
-							Save Changes
-					</Button>
-					</Modal.Footer>
 				</Modal>
 			</>
 		);
 	}
 }
 
-export default () => (<div><ListingModal /></div>)
+//export default () => (<div><ListingModal /></div>)

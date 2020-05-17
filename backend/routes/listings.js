@@ -12,7 +12,7 @@ router.route('/add').post((req, res) => {
   const email = req.body.email;
   const number = req.body.number;
   const additional = req.body.additional;
-  const players = Number(req.body.number);
+  const players = req.body.number;
   const location = req.body.location;
 
   const newListing = new Listing({

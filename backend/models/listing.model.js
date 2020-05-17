@@ -10,6 +10,8 @@ const listingSchema = new Schema({
     additional: { type: String, required: false },
     players: { type: Number, required: true },
     location: { type: String, required: true },
+    latitude: { type: String, required: false },
+    longitude: { type: String, required: false },
   }, {
     timestamps: true,
   });

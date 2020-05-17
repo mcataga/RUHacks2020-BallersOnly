@@ -15,6 +15,8 @@ router.route('/add').post((req, res) => {
   const additional = req.body.additional;
   const players = req.body.players;
   const location = req.body.location;
+  const latitude = req.body.latitude;
+  const longitude = req.body.longitude;
 
   const newListing = new Listing({
     title,
@@ -24,6 +26,8 @@ router.route('/add').post((req, res) => {
     additional,
     players,
     location,
+    latitude,
+    longitude
   });
 
   newListing.save()
@@ -53,6 +57,8 @@ router.route('/update/:id').post((req, res) => {
         listing.additional = req.body.additional;
         listing.players = Number(req.body.players);
         listing.location = req.body.location;
+        listing.latitude = req.body.latitude;
+        listing.longitude = req.body.longitude
 
       listing.save()
         .then(() => res.json('Listing updated!'))

@@ -17,6 +17,8 @@ export default class ListingModal extends Component {
 		this.onChangeAdditional = this.onChangeAdditional.bind(this);
 		this.onChangePlayers = this.onChangePlayers.bind(this);
 		this.onChangeLocation = this.onChangeLocation.bind(this);
+		this.onChangeLatitude = this.onChangeLatitude.bind(this);
+		this.onChangeLongitude = this.onChangeLongitude.bind(this);
     	this.onSubmit = this.onSubmit.bind(this);
 
 		this.state = {
@@ -27,7 +29,9 @@ export default class ListingModal extends Component {
 			number: '',
 			additional: '',
 			players: 1,
-			location: ''
+			location: '',
+			latitude: '',
+			longitude: ''
 		};
 	}
 
@@ -88,6 +92,20 @@ export default class ListingModal extends Component {
 		console.log(e.target.value);
 	}
 
+	onChangeLatitude(e) {
+		this.setState({
+		  latitude: e.target.value
+		})
+		console.log(e.target.value);
+	}
+
+	onChangeLongitude(e) {
+		this.setState({
+		  longitude: e.target.value
+		})
+		console.log(e.target.value);
+	}
+
 	onSubmit(e) {
 		e.preventDefault();
 	
@@ -98,7 +116,9 @@ export default class ListingModal extends Component {
 			number: this.state.number,
 			additional: this.state.additional,
 			players: this.state.players,
-			location: this.state.location
+			location: this.state.location,
+			latitude: this.state.latitude,
+			longitude: this.state.longitude
 		}
 	
 		console.log(listing);
@@ -169,7 +189,6 @@ export default class ListingModal extends Component {
 								<Form.Label>Location</Form.Label>
 								<Form.Control type="text" placeholder="Your location" value={this.state.location} onChange={this.onChangeLocation}/>
 							</Form.Group>
-
 
 							<Button variant="primary" type="submit">
 								Submit

@@ -26,13 +26,13 @@ export default class AboutUs extends Component {
                 <Card.Body>
                     <Card.Title>Alton Dulinen</Card.Title>
                     <Card.Text>
-                    Third Year Computer Science, Ryerson University
+                    6 ft 0 in (in timbs) point guard out of Ryerson University. 
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                    <ListGroupItem>18.7ppg, 4.8reb, 9.3ast</ListGroupItem>
+                    <ListGroupItem>175lb</ListGroupItem>
+                    <ListGroupItem>I can't dunk.</ListGroupItem>
                 </ListGroup>
             </Card>
             
@@ -43,13 +43,13 @@ export default class AboutUs extends Component {
                 <Card.Body>
                     <Card.Title>Mico Cataga</Card.Title>
                     <Card.Text>
-                    Third Year Computer Science, Ryerson University
+                    6 ft 5 in shooting guard out of Ryerson University.
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                    <ListGroupItem>22.6ppg, 5.3reb, 3.6ast</ListGroupItem>
+                    <ListGroupItem>195lb</ListGroupItem>
+                    <ListGroupItem>My fg% is higher than my GPA.</ListGroupItem>
                 </ListGroup>
             </Card>
             
@@ -60,13 +60,13 @@ export default class AboutUs extends Component {
                 <Card.Body>
                     <Card.Title>Manveer Gill</Card.Title>
                     <Card.Text>
-                    Third Year Computer Science, Ryerson University
+                    6 ft 10 in power forward out of Ryerson University.
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                    <ListGroupItem>24.8ppg, 8.7reb, 3.2ast</ListGroupItem>
+                    <ListGroupItem>240lb</ListGroupItem>
+                    <ListGroupItem>I'm a big man who only shoots three's.</ListGroupItem>
                 </ListGroup>
             </Card>
             
@@ -77,13 +77,13 @@ export default class AboutUs extends Component {
                 <Card.Body>
                     <Card.Title>Musab Jaseem</Card.Title>
                     <Card.Text>
-                    Third Year Computer Science, Ryerson University
+                    6 ft 7 in small forward out of Ryerson University.
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                    <ListGroupItem>17.8ppg, 6.3reb, 4.5ast</ListGroupItem>
+                    <ListGroupItem>220lb</ListGroupItem>
+                    <ListGroupItem>I don't even like basketball.</ListGroupItem>
                 </ListGroup>
             </Card>
             

@@ -5,18 +5,20 @@ import GoogleMaps from './google-maps.component';
 import axios from 'axios';
 
 const Listing = props => (
-  <Card>
-    <Card.Header as="h5">Name: {props.listing.name}</Card.Header>
+  <Card bg="primary" text="light">
+    <Card.Header as="h1">{props.listing.title}</Card.Header>
     <Card.Body>
-      <Card.Footer>
-        <Card.Title>Location: {props.listing.location} </Card.Title></Card.Footer>
+    <Card.Footer><Card.Title>Name: {props.listing.name} </Card.Title></Card.Footer>
+      <Card.Footer><Card.Title>Location: {props.listing.location} </Card.Title></Card.Footer>
       {/* <GoogleMaps /> */}
-      <Card.Text>Description: {props.listing.additional}</Card.Text>
-      <Card.Text>Players Required: {props.listing.players}</Card.Text>
-      <Card.Text>Email: {props.listing.email}</Card.Text>
-      <Card.Footer>
-      <Link to={"/edit/" + props.listing._id}>edit</Link> | <a href="#" onClick={() => { props.deleteListing(props.listing._id) }}>delete</a>
-      <Button variant="primary">Go somewhere</Button>
+      <Card.Footer><Card.Title>Players Required: {props.listing.players}</Card.Title></Card.Footer>
+      <Card.Footer><Card.Title>Email: {props.listing.email}</Card.Title></Card.Footer>
+      <Card.Footer><Card.Title>Number: {props.listing.number} </Card.Title></Card.Footer>
+      <Card.Footer><Card.Title>Description: {props.listing.additional}</Card.Title></Card.Footer>
+      
+      <Card.Footer class="admin-background">
+      <Link as="h6" to={"/edit/" + props.listing._id}>edit</Link> | <a href="#" onClick={() => { props.deleteListing(props.listing._id) }}>delete </a>
+      <Button variant="accept">Go somewhere</Button>
       </Card.Footer>
     </Card.Body>
   </Card>

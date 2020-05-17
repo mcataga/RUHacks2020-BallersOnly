@@ -39,3 +39,26 @@
   max-width: 100%;
   object-fit: cover;
 }
+
+.card {
+  margin-top: 20px;
+}
+
+.card-footer{
+  margin-top: 5px;
+  background-color: rgba(0,0,0,.15);
+}
+
+a{
+  color: #000000;
+}
+
+.admin-background {
+  margin-top: 10px;
+  font-weight: bolder;
+}
+
+.btn-accept{
+  color: #fff;
+  background-color: #199109;
+}

@@ -17,6 +17,7 @@ const Listing = props => (
       <Card.Footer><Card.Title>Number: {props.listing.number} </Card.Title></Card.Footer>
       <Card.Footer><Card.Title>Description: {props.listing.additional}</Card.Title></Card.Footer>
       <Card.Footer><Card.Title>Distance: {props.listing.distance}km</Card.Title></Card.Footer>
+      <Card.Footer><Card.Title>Last Updated at: {props.listing.updatedAt.substring(11,19)}</Card.Title></Card.Footer>
       <Card.Footer class="admin-background">
       <Button variant="accept" style={{float: 'right'}}>Accept</Button>
       </Card.Footer>
@@ -27,9 +28,10 @@ const Listing = props => (
 export default class ExercisesList extends Component {
   constructor(props) {
     super(props);
-
-    this.deleteListing = this.deleteListing.bind(this)
-
+    this.deleteListing = this.deleteListing.bind(this);
+    this.sortListByDistance = this.sortListByDistance.bind(this);
+    this.sortListByLastUpdated = this.sortListByLastUpdated.bind(this);
+    this.sortListByPlayers = this.sortListByPlayers.bind(this);
     this.state = { listings: [], 
                     userLong: '', 
                     userLat: '' };
@@ -41,7 +43,6 @@ export default class ExercisesList extends Component {
         this.setState({
           listings: response.data.reverse()
         });
-
       })
       .catch((error) => {
         console.log(error);
@@ -53,9 +54,6 @@ export default class ExercisesList extends Component {
       });
   }
 
-  getUserCoords() {
-    return {latitude: this.state.userLat, longitude: this.state.userLong};
-  }
 
   deleteListing(id) {
     axios.delete('http://localhost:5000/listings/' + id)
@@ -66,17 +64,40 @@ export default class ExercisesList extends Component {
     })
   }
 
+
   listingList() {
-    return this.state.listings.map(currentlisting => {
+    this.state.listings.map(currentlisting => {
       var distance = Math.abs(getDistance({latitude: this.state.userLat, longitude: this.state.userLong}, {latitude: currentlisting.latitude, longitude: currentlisting.longitude})/1000);
       currentlisting.distance = Math.round(distance * 10)/10
+    });
+      return this.state.listings.map(currentlisting => {
       return <Listing listing={currentlisting} deleteListing={this.deleteListing} key={currentlisting._id} />;
+    })
+  }
+
+  sortListByDistance(e) {
+    this.setState({
+      listings: this.state.listings.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
+    })
+  }
+  sortListByLastUpdated(e) {
+    this.setState({
+      listings: this.state.listings.sort((a, b) => (a.updatedAt > b.updatedAt) ? 1 : -1)
+    })
+  }
+  sortListByPlayers(e) {
+    this.setState({
+      listings: this.state.listings.sort((a, b) => (a.players > b.players) ? 1 : -1)
     })
   }
 
   render() {
     return (
+      
       <div>
+        <div><Button variant="danger" onClick={this.sortListByDistance}>Sort by Distance</Button>
+        <Button variant="danger" onClick={this.sortListByLastUpdated}>Sort by Last Updated</Button>
+        <Button variant="danger" onClick={this.sortListByPlayers}>Sort by # of Players Required</Button></div>
         {this.listingList()}
       </div>
     )

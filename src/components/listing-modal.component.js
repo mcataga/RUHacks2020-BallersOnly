@@ -122,7 +122,7 @@ export default class ListingModal extends Component {
 		axios.post('http://localhost:5000/listings/add', listing)
 		  .then(res => console.log("test"));
 	
-		window.location = '/';
+		window.location = '/listings';
 	}
 
 	render() {

@@ -1,7 +1,11 @@
-Code for MERN tutorial.
+BallersOnly app
 
-Video Tutorial: https://www.youtube.com/watch?v=7CqJlxBYj-M
+Made by yours truly, 
 
-Article Tutorial: https://medium.com/@beaucarnes/learn-the-mern-stack-by-building-an-exercise-tracker-mern-tutorial-59c13c1237a1
+Musab Jaseem
+Manveer Gill
+Alton Dulinen
+Mico Cataga
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Made on the MERN stack
+

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ListingModal from './listing-modal.component';
 
 export default class Navbar extends Component {
 
@@ -20,6 +21,7 @@ export default class Navbar extends Component {
           </li>
         </ul>
         </div>
+        <ListingModal/>
       </nav>
     );
   }

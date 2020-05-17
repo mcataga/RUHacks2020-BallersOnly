@@ -10,6 +10,7 @@ import CreateUser from "./components/create-user.component";
 import ListingModal from "./components/listing-modal.component";
 import Account from "./components/account.component";
 import AboutUs from "./components/about-us.component";
+import HomePage from "./components/homepage.component";
 
 function App() {
   return (
@@ -17,13 +18,15 @@ function App() {
       <div className="container">
       <Navbar />
       <br/>
-      <Route path="/" exact component={ExercisesList} />
+      <Route path="/" exact component={HomePage} />
       <Route path="/edit/:id" component={EditExercise} />
       <Route path="/create" component={CreateExercise} />
       <Route path="/user" component={CreateUser} />
       <Route path="/account" component={Account} />
       <Route path="/aboutus" component={AboutUs} />
       <Route path="/listing" component={ListingModal} />
+      <Route path="/listings" component={ExercisesList} />
+      <Route path="/home" component={HomePage} />
       </div>
     </Router>
   );

@@ -95,7 +95,8 @@ export default class ExercisesList extends Component {
     return (
       
       <div>
-        <div><Button variant="danger" onClick={this.sortListByDistance}>Sort by Distance</Button>
+        <div>
+        <Button variant="danger" onClick={this.sortListByDistance}>Sort by Distance</Button>
         <Button variant="danger" onClick={this.sortListByLastUpdated}>Sort by Last Updated</Button>
         <Button variant="danger" onClick={this.sortListByPlayers}>Sort by # of Players Required</Button></div>
         {this.listingList()}

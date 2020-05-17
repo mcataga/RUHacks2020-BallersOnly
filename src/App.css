@@ -144,3 +144,9 @@ a{
 a:hover {
   color: #ffffff;
 }
+
+.btn-danger{
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}

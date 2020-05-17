@@ -19,7 +19,7 @@ const Listing = props => (
       <Card.Footer><Card.Title>Distance: {props.listing.distance}km</Card.Title></Card.Footer>
       <Card.Footer><Card.Title>Last Updated at: {props.listing.updatedAt.substring(11,19)}</Card.Title></Card.Footer>
       <Card.Footer class="admin-background">
-      <Button variant="accept" style={{float: 'right'}}>Accept</Button>
+      <Button variant="accept" style={{float: 'right'} }onClick={()=>{console.log(props.listing);props.deleteListing(props.listing._id);}}>Accept</Button>
       </Card.Footer>
     </Card.Body>
   </Card>

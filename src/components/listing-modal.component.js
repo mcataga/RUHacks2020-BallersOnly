@@ -41,36 +41,42 @@ export default class ListingModal extends Component {
 		this.setState({
 		  name: e.target.value
 		})
+		console.log(e.target.value);
 	}
 	
 	onChangeEmail(e) {
 		this.setState({
 		  email: e.target.value
 		})
+		console.log(e.target.value);
 	}
 
 	onChangeNumber(e) {
 		this.setState({
 		  number: e.target.value
 		})
+		console.log(e.target.value);
 	}
 
 	onChangeAdditional(e) {
 		this.setState({
 		  additional: e.target.value
 		})
+		console.log(e.target.value);
 	}
 
 	onChangePlayers(e) {
 		this.setState({
 		  players: e.target.value
 		})
+		console.log(e.target.value);
 	}
 
 	onChangeLocation(e) {
 		this.setState({
 		  location: e.target.value
 		})
+		console.log(e.target.value);
 	}
 
 	onSubmit(e) {
@@ -134,7 +140,7 @@ export default class ListingModal extends Component {
 							<Form.Group controlId="formBasicPlayers">
 							
 								<Form.Label>Required Players</Form.Label>
-								<Form.Control as="select" value={this.state.selectValue} onChange={this.onChangePlayers}>
+								<Form.Control as="select" onChange={this.onChangePlayers.bind(this)}>
         							<option>1</option>
         							<option>2</option>
 									<option>3</option>

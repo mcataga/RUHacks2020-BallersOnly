@@ -12,7 +12,7 @@ router.route('/add').post((req, res) => {
   const email = req.body.email;
   const number = req.body.number;
   const additional = req.body.additional;
-  const players = req.body.number;
+  const players = req.body.players;
   const location = req.body.location;
 
   const newListing = new Listing({
@@ -48,7 +48,7 @@ router.route('/update/:id').post((req, res) => {
         listing.email = req.body.email;
         listing.number = req.body.number;
         listing.additional = req.body.additional;
-        listing.players = Number(req.body.number);
+        listing.players = Number(req.body.players);
         listing.location = req.body.location;
 
       listing.save()

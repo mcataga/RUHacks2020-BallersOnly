@@ -15,7 +15,7 @@ export default class AboutUs extends Component {
         return (
 
         <div id="parent">
-            <div class="about-section">
+            <div className="about-section" margin-top="10%">
             <h1>About Us</h1>
             <p>Meet the creators of BallersOnly.</p>
             </div>

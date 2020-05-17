@@ -14,7 +14,7 @@ export default class Account extends Component {
         return (
 
         <div id="parent">
-            <div class="about-section">
+            <div className="about-section">
             <h1>Account Details</h1>
             </div>
 

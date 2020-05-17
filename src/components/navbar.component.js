@@ -2,35 +2,37 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar,NavItem,Nav,Button } from "react-bootstrap";
 import ListingModal from './listing-modal.component';
+import logo from '../pictures/logo5.png';
 
 export default class NavbarMain extends Component {
 
   render() {
     return (
     <div className="navbar-wrapper">
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">BallersOnly</Link>
-        <div className="collpase navbar-collapse">
-        <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
-          <Link to="/listings" className="nav-link">Listings</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/aboutus" className="nav-link">About Us</Link>
-          </li>
-        </ul>
+    <Navbar className="navbar navbar-dark bg-dark navbar-expand-lg">
+      
+    <Navbar.Brand className="logo" href="/home">
+      <img
+        src={logo}
+        width="20"
+        height="20"
+        className="d-inline-block align-top"
+        alt="abc"
         
-        <div className="navbar navbar-dark bg-dark navbar-expand-lg">
-          <ul className="navbar-nav mr-auto">
-            <li className="navbar-item">
-            <Link to="/account" className="nav-link">My Account</Link>
-            </li>
-          </ul>
-        </div>
 
-        </div>
+      />
+    </Navbar.Brand>
+    <Nav>
+    <Nav.Link href="/listings">Listings</Nav.Link>
+    <Nav.Link href="/aboutus">About Us</Nav.Link>
+    <Nav.Link href="/account">Account</Nav.Link>
+    </Nav>
+   
         <ListingModal/>
-      </nav>
+    
+    
+   
+    </Navbar>
     </div>
     );
   }

@@ -128,7 +128,7 @@ export default class ListingModal extends Component {
 	render() {
 		return (
 			<>
-				<Button variant="primary" onClick={this.handleShow}>
+				<Button variant="primary" style={{float: 'right'} } onClick={this.handleShow}>
 					Create Listing
 			</Button>
 				<Modal onSubmit={this.onSubmit} show={this.state.show} onHide={this.handleClose} size="lg"

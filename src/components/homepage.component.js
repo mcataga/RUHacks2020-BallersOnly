@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import HomeButton from './homebutton.component';
 
 const useStyles = makeStyles((theme) => ({
   root: {

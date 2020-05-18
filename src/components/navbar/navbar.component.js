@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar,NavItem,Nav,Button } from "react-bootstrap";
-import ListingModal from './listing-modal.component';
-import logo from '../pictures/logo5.png';
+import ListingModal from '../listing-modal.component';
+import logo from '../../pictures/logo5.png';
 
 export default class NavbarMain extends Component {
 
@@ -25,7 +25,7 @@ export default class NavbarMain extends Component {
     <Nav>
     <Nav.Link href="/listings">Listings</Nav.Link>
     <Nav.Link href="/aboutus">About Us</Nav.Link>
-    <Nav.Link href="/account">Account</Nav.Link>
+    <Nav.Link href="/profile">Profile</Nav.Link>
     </Nav>
    
         <ListingModal/>

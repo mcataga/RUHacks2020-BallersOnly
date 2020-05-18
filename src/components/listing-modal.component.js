@@ -184,7 +184,7 @@ export default class ListingModal extends Component {
 							<Form.Group controlId="formBasicLocation">
 								<Form.Label>Location</Form.Label>
 								<GooglePlacesAutocomplete
-								onSelect={object => {this.onChangeLocation(object)}} apiKey="AIzaSyD2YwvshqSztoaJkzrh2MwHglDDsJY15-4"
+								onSelect={object => {this.onChangeLocation(object)}} apiKey="<APIKEY HERE>"
 								/>
 							</Form.Group>
 

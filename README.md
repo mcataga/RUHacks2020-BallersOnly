@@ -20,3 +20,5 @@ Clone repository and run 'npm install' once in the root directory and once under
 
 ![](example-images/chrome_g10ybIgVeR.png)
 
+### Written by
+Musab Jaseem, Manveer Gill, Alton Dulinen, Mico Cataga

@@ -16,8 +16,16 @@ router.route('/signup').post((req, res, next) => {
         password
     } = body;
     let {
+        username,
         email
     } = body;
+
+    if (!username){
+        return res.send({
+            success: false,
+            message: 'Error: Username cannot be blank.'
+        })
+    }
 
     if (!firstName){
         return res.send({
@@ -48,23 +56,32 @@ router.route('/signup').post((req, res, next) => {
     }
 
     email = email.toLowerCase();
+    username = username.toLowerCase();
 
     User.find({
-        email: email
+        $or: [ { email: email }, { username: username } ]
     }, (err,previousUsers) =>{
         if (err){
             return res.send({
                 success: false,
                 message: 'Error: Server error.'
-            })
-        } else if (previousUsers.length > 0){
-            return res.send({
-                success: false,
-                message: 'Error: Account already exists with this email.'
-            })
-        }
+            })}
+        if (previousUsers.length > 0){
+            if (previousUsers[0].email == email){
+                return res.send({
+                    success: false,
+                    message: 'Error: Account already exists with this email.'
+                })
+            } else if (previousUsers[0].username == username){
+                return res.send({
+                    success: false,
+                    message: 'Error: Account already exists with this username.'
+                })
+        }}
+        
 
         const newUser = new User();
+        newUser.username = username;
         newUser.email = email;
         newUser.firstName = firstName;
         newUser.lastName = lastName;
@@ -91,13 +108,13 @@ router.route('/login').post((req, res, next) => {
             password
         } = body;
         let {
-            email
+            username
         } = body;
 
-    if (!email){
+    if (!username){
         return res.send({
             success: false,
-            message: 'Error: Email cannot be blank.'
+            message: 'Error: Username cannot be blank.'
         })
     }
 
@@ -108,10 +125,10 @@ router.route('/login').post((req, res, next) => {
         })
     }
 
-    email = email.toLowerCase();
+    username = username.toLowerCase();
 
     User.find({
-        email: email
+        username: username
     },(err, users) => {
         if (err) {
             return res.send({
@@ -123,7 +140,7 @@ router.route('/login').post((req, res, next) => {
         if (users.length != 1){
             return res.send({
                 success: false,
-                message: 'Error: No user exists with the email/password combination provided.'
+                message: 'Error: No user exists with the username/password combination provided.'
             })
         }
 

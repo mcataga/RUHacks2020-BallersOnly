@@ -12,11 +12,11 @@ Clone repository and run 'npm install' once in the root directory and once under
 
 ## Screenshots
 
-![](example-images/chrome_HGChpB7QTh)
+![](example-images/chrome_HGChpB7QTh.png)
 
-![](example-images/chrome_BFZjiEY8Dk)
+![](example-images/chrome_BFZjiEY8Dk.png)
 
-![](example-images/chrome_u6ywJ8sMFI)
+![](example-images/chrome_u6ywJ8sMFI.png)
 
-![](example-images/chrome_g10ybIgVeR)
+![](example-images/chrome_g10ybIgVeR.png)
 
